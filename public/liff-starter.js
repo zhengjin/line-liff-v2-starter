@@ -1,6 +1,7 @@
 window.onload = function() {
-    const useNodeJS = true;   // if you are not using a node server, set this value to false
-    const defaultLiffId = "";   // change the default LIFF value if you are not using a node server
+    const vconsole = new VConsole();
+    const useNodeJS = false;   // if you are not using a node server, set this value to false
+    const defaultLiffId = "1654644294-byV38lP0";   // change the default LIFF value if you are not using a node server
 
     // DO NOT CHANGE THIS
     let myLiffId = "";
@@ -22,6 +23,7 @@ window.onload = function() {
             });
     } else {
         myLiffId = defaultLiffId;
+        console.log(myLiffId);
         initializeLiffOrDie(myLiffId);
     }
 };
@@ -50,6 +52,7 @@ function initializeLiff(myLiffId) {
         })
         .then(() => {
             // start to use LIFF's api
+            console.log('start to use LIFF\'s api')
             initializeApp();
         })
         .catch((err) => {
@@ -207,6 +210,7 @@ function registerButtonHandlers() {
 
     // login call, only when external browser is used
     document.getElementById('liffLoginButton').addEventListener('click', function() {
+        console.log(JSON.stringify(liff));
         if (!liff.isLoggedIn()) {
             // set `redirectUri` to redirect the user to a URL other than the front page of your LIFF app.
             liff.login();
