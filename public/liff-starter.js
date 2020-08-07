@@ -59,6 +59,7 @@ function initializeLiff(myLiffId) {
             document.getElementById("liffAppContent").classList.add('hidden');
             document.getElementById("liffInitErrorMessage").classList.remove('hidden');
         });
+    console.log('windows url', window.location.href);
 }
 
 /**
